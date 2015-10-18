@@ -61,8 +61,46 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <body unresolved class="fullbleed layout vertical">
   <span id="browser-sync-binding"></span>
-  <template is="dom-bind" id="app">
-  <singh-webapp></singh-webapp>
+  <template is="dom-bind" id='app'>
+    <paper-drawer-panel id="paperDrawerPanel" drawer-width='300px'>
+      <div drawer>
+        <drawer-info></drawer-info>
+        <paper-menu class="list" attr-for-selected="data-route" selected="[[route]]">
+          <a data-route="home" href="/" on-click="onDataRouteClick">
+            <iron-icon icon="home"></iron-icon>
+            <span>Home</span>
+          </a>
+
+          <a data-route="about" href="/about" on-click="onDataRouteClick">
+            <iron-icon icon="info"></iron-icon>
+            <span>About</span>
+          </a>
+
+          <!-- <a data-route="contact" href="/contact" on-click="onDataRouteClick">
+            <iron-icon icon="mail"></iron-icon>
+            <span>Contact</span>
+          </a> -->
+        </paper-menu>
+      </div>
+      <div main>
+        <paper-header-panel id='panel' mode='seamed'>
+          <paper-toolbar class="medium">
+              <paper-icon-button icon='menu' paper-drawer-toggle></paper-icon-button>
+              <div class='heading'>{{header}}</div>
+              <span class='flex'></span>
+              <paper-icon-button icon='more-vert'></paper-icon-button>
+          </paper-toolbar>
+          <div class='content'>
+            <neon-animated-pages attr-for-selected="data-route" selected='{{route}}'>
+              <greeting-page data-route='home'></greeting-page>
+              <about-page data-route='about'></about-page>
+            </neon-animated-pages>
+          </div>
+        </paper-header-panel>
+        <div>
+        </div>
+      </div>
+    </paper-drawer-panel>
   </template>
 
   <!-- build:js scripts/app.js -->
