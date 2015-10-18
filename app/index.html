@@ -75,6 +75,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <iron-icon icon="info"></iron-icon>
             <span>About</span>
           </a>
+          <a data-route="contact" href="/contact" on-click="onDataRouteClick">
+            <iron-icon icon="icons:perm-phone-msg"></iron-icon>
+            <span>Contact</span>
+          </a>
 
           <!-- <a data-route="contact" href="/contact" on-click="onDataRouteClick">
             <iron-icon icon="mail"></iron-icon>
@@ -94,6 +98,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <neon-animated-pages attr-for-selected="data-route" selected='{{route}}'>
               <greeting-page data-route='home'></greeting-page>
               <about-me data-route='about'></about-me>
+              <contact-me data-route='contact'></contact-me>
             </neon-animated-pages>
           </div>
         </paper-header-panel>
