@@ -1,0 +1,35 @@
+<dom-module id="singh-webapp">
+<style>
+	div[drawer] {
+		background: var(--light-primary-color);
+	}
+	neon-animated-pages {
+		@apply(--layout-flex);
+	}
+</style>
+	<template>
+		<paper-drawer-panel id="paperDrawerPanel">
+	      <div drawer>
+	      	<drawer-info></drawer-info>
+	      </div>
+	      <div main>
+	      	<paper-header-panel id='panel' mode='seamed'>
+	      		<paper-toolbar class="medium">
+								<paper-icon-button icon='menu' paper-drawer-toggle></paper-icon-button>
+								<div class='heading'>{{header}}</div>
+								<span class='flex'></span>
+								<paper-icon-button icon='more-vert'></paper-icon-button>
+	      		</paper-toolbar>
+	      		<div class='content'>
+	      			<neon-animated-pages selected='{{route}}'>
+	      				<greeting-page></greeting-page>
+	      			</neon-animated-pages>
+	      		</div>
+	      	</paper-header-panel>
+	        <div>
+	        </div>
+	      </div>
+	    </paper-drawer-panel>
+	</template>
+</dom-module>
+<script src='singh-webapp.js'></script>

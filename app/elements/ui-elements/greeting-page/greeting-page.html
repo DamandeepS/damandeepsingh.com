@@ -1,0 +1,46 @@
+<dom-module id='greeting-page'>
+<style>
+	paper-material {
+		padding: 20px;
+		margin: 20px;
+		background-color: #fff;
+	}
+
+	.intro h1 {
+		font-weight: 200;
+	}
+
+	.intro p {
+		font-weight: 300;
+	}
+
+	.icons-horizontal {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		@apply(--layout-horizontal);
+		text-align: center;
+	}
+
+	.icons-horizontal social-media-icons {
+		display: inline-block;
+		@apply(--layout-flex-auto);
+		color: var(--accent-color);
+	}
+</style>
+<template>
+	<paper-material>
+		<div class="intro">
+			<h1>{{welcomeText}}</h1>
+			<p class="into-body">{{welcomeTextBody}}</p>
+		</div>
+	</paper-material>
+	<paper-material class='icons-horizontal' elevation='1'>
+			<template is='dom-repeat' items='[[data]]' as='item'>
+				<social-media-icons icon="{{item.icon}}" color='#FF4081' size="32" href="{{item.href}}"></social-media-icons>
+			</template>
+	</paper-material>
+</template>
+</dom-module>
+<script src='greeting-page.js'></script>

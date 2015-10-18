@@ -1,0 +1,36 @@
+<dom-module id='drawer-info'>
+	<style>
+		paper-material {
+			text-align: center;
+			color: #fff;
+			background-color: var(--dark-primary-color);
+		}
+		iron-image {
+			height: 200px;
+			width: 200px;
+			border-radius: 50%;
+			margin: 20px auto;
+			background-color: #333;
+		}
+
+		h2 {
+			margin: 0;
+			padding-bottom: 20px;
+			font-weight: 200;
+		}
+	</style>
+	<template>
+		<paper-material elevation='0'>
+			<iron-image src='[[userImage]]' sizing="contain"></iron-image>
+			<h2>[[userName]]</h2>
+		</paper-material>
+		<iron-ajax id='userImageService'
+		url='[[_userPicUrl]]'
+		method='get'
+		handle-as='json'
+		params='{"height":"300", "width":"300", "redirect": "false"}'
+		on-response='_getImageUrl'>
+		</iron-ajax>
+	</template>
+</dom-module>
+<script src='drawer-info.js'></script>
