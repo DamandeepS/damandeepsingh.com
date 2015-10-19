@@ -15,12 +15,12 @@ Polymer({
 				href: 'mailto:mail@damandeepsingh.com',
 				contact: 'mail@damandeepsingh.com'
 			}]
+		},
+		_coverPicUrl: {
+			type: String,
+			value: 'images/cover-pic.jpg'
 		}
 	},
 	ready: function() {
-		this.$.fbCoverService.generateRequest();
-	},
-	_gotCoverPic: function(e,resp) {
-		this.set('_coverPicUrl', resp.response.cover.source);
 	}
 });

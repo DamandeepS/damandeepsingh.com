@@ -73,14 +73,6 @@
 	</style>
 	<template>
 
-		<iron-ajax
-		id='fbCoverService'
-		url='https://graph.facebook.com/me'
-		params='{"access_token": "CAACEdEose0cBAKEgu23jmNxBAZCzxyuBT5eMEjdUgujW0r0EpxGG40qi9moWBmZB0RZBOx82N4hiFmFibH60puGu3GYIrrtvt0ttkmwVXocdQk37n0fdFDy9i8w1NdJfkbhZASldf8jHTJCfQkBEU1Ks5rsjAZBnN1PYn76dgLNdNazmrSbjHXCwUpB5EMTHKAZC3mfLkYkAZDZD", "fields": "cover"}'
-		on-response='_gotCoverPic'
-		on-error='_error'>
-		</iron-ajax>
-
 		<div id="card">
 			<iron-image 
 			src='[[_coverPicUrl]]'
