@@ -61,7 +61,7 @@
 	.contactList svg path {
 		fill: var(--menu-link-color);
 	}
-	.contactList p:after {
+	.contactList .info:after {
 		content: '';
 		display: block;
 		height: 1px;
@@ -69,6 +69,26 @@
 		width: 10000px;
 		bottom: 0px;
 		background: var(--primary-text-color);
+		opacity: 0.33;
+	}
+
+	.info {
+		display: inline-block;
+		@apply(--layout-vertical);
+		margin: 5px 0;
+	}
+	.info p {
+		margin: 0;
+		padding: 0;
+	}
+
+	.info .contact-name {
+		font-size: 1.3em;
+		font-weight: 200;
+	}
+	.info .contact {
+		font-size: 1em;
+		font-weight: 500;
 	}
 	</style>
 	<template>
@@ -88,12 +108,15 @@
 					<paper-material class='contactList' elevation='0'>
 						<a href='[[item.href]]'>
 						<iron-icon icon='[[item.icon]]' src='[[item.src]]'></iron-icon>
-						<p>[[item.contact]]</p>
+						<div class='info'>
+							<p class='contact-name'>[[item.contactName]]</p>
+							<p class='contact'>[[item.contact]]</p>
+						</div>
 						</a>
 					</paper-material>
 				</template>
 				<paper-material class='contactList' elevation='0'>
-					<a href='skypeto:damandeepsinghofficial'>
+					<a href='skype:damandeepsinghofficial'>
 						<svg version="1.1" id="Skype" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 								 viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
 						<path fill="#ccc" d="M18.671,12.037c0.132-0.623,0.203-1.272,0.203-1.938c0-4.986-3.93-9.029-8.777-9.029
@@ -116,7 +139,10 @@
 							c0.711,0.156,1.363,0.332,1.939,0.521c0.585,0.193,1.09,0.43,1.502,0.705c0.42,0.283,0.754,0.645,0.989,1.076
 							c0.237,0.434,0.357,0.969,0.357,1.59C15.213,13.145,15.006,13.822,14.599,14.416z"/>
 							</svg>
-					<p>DamandeepSinghOfficial</p>
+						<div class='info'>
+							<p class='contact-name'>Skype</p>
+							<p class='contact'>DamandeepSinghOfficial</p>
+						</div>
 					</a>
 				</paper-material>
 			</div>

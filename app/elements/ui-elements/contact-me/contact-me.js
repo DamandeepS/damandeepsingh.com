@@ -9,10 +9,12 @@ Polymer({
 			value: [{
 				icon: 'communication:call',
 				href: 'tel:+917032855666',
+				contactName: 'Phone',
 				contact: '(+91) 7032 855 666'
 			},{
 				icon: 'communication:email',
 				href: 'mailto:mail@damandeepsingh.com',
+				contactName: 'E-mail',
 				contact: 'mail@damandeepsingh.com'
 			}]
 		},
