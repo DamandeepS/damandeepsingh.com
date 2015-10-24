@@ -72,10 +72,15 @@
 		opacity: 0.33;
 	}
 
+	.hardcoded .info:after {
+		opacity: 0;
+	}
+
 	.info {
 		display: inline-block;
 		@apply(--layout-vertical);
 		margin: 5px 0;
+    	padding: 1px;
 	}
 	.info p {
 		margin: 0;
@@ -115,7 +120,7 @@
 						</a>
 					</paper-material>
 				</template>
-				<paper-material class='contactList' elevation='0'>
+				<paper-material class='contactList hardcoded' elevation='0'>
 					<a href='skype:damandeepsinghofficial'>
 						<svg version="1.1" id="Skype" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 								 viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">

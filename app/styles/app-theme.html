@@ -75,7 +75,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     color: var(--default-primary-color);
   }
 
-  paper-menu a {
+  paper-menu a, paper-menu-button .dropdown-content a {
     text-decoration: none;
     color: var(--menu-link-color);
     display: -ms-flexbox;
@@ -178,6 +178,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   }
 
+  paper-menu-button .dropdown-content {
+    background-color: #fff;
+  }
+
+  paper-menu-button .dropdown-content a {
+    padding: 0;
+    width: 100%;
+  }
+  paper-menu-button .dropdown-content a paper-item{
+    width: 100%;
+  }
   /* Material Design Adaptive Breakpoints */
   /*
     Below you'll find CSS media queries based on the breakpoint guidance

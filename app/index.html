@@ -92,7 +92,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               <paper-icon-button icon='menu' paper-drawer-toggle></paper-icon-button>
               <div class='heading'>{{header}}</div>
               <span class='flex'></span>
-              <paper-icon-button icon='more-vert'></paper-icon-button>
+              <paper-menu-button horizontal-align='right'>
+                <paper-icon-button icon="more-vert" class="dropdown-trigger"></paper-icon-button>
+                <div class="dropdown-content">
+                  <a href="#" on-click="onDataRouteClick"><paper-item>Share</paper-item></a>
+                  <a href="https://www.polymer-project.org/" target="_blank" on-click="onDataRouteClick"><paper-item>Polymer</paper-item></a>
+                  <a href="/contact" on-click="onDataRouteClick"><paper-item>Contact</paper-item></a>
+                </div>
+              </paper-menu-button>
           </paper-toolbar>
           <div class='content'>
             <neon-animated-pages attr-for-selected="data-route" selected='{{route}}'>

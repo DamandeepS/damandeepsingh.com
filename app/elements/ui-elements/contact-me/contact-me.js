@@ -1,9 +1,6 @@
 Polymer({
 	is: 'contact-me',
 	properties: {
-		_coverPicUrl: {
-			type: String
-		},
 		communicationItems: {
 			type: Array,
 			value: [{
