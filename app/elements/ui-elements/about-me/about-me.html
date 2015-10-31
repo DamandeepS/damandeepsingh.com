@@ -1,0 +1,27 @@
+<dom-module id="about-me">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <div>Hello from <span>{{foo}}</span></div>
+  </template>
+  <script>
+  (function() {
+    'use strict';
+
+    Polymer({
+      is: 'about-me',
+
+      properties: {
+        foo: {
+          type: String,
+          value: 'about-me',
+          notify: true
+        }
+      }
+    });
+  })();
+  </script>
+</dom-module>

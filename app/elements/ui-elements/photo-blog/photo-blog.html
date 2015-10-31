@@ -1,0 +1,125 @@
+<dom-module id="photo-blog">
+    <style>
+      :host {
+        display: block;
+      }
+
+      .container {
+        @apply(--layout-fit);
+        text-align: center;
+      }
+      .thumbnails {
+        height: 250px;
+        width: 250px;
+        margin: 10px;
+        cursor: pointer;
+        display: inline-block;
+      }
+
+      iron-image {
+        width: 100%;
+        height: 100%;
+      }
+
+      div.photo-title {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(0,0,0,0.3);
+        color: #fff;
+      }
+
+      div.photo-title h4 {
+        font-weight: 300;
+        margin: 0;
+        padding: 3px;
+        text-align: center;
+      }
+
+      paper-dialog {
+        height: 80%;
+        max-width: 80%;
+        width: 80%;
+        background-color: rgba(0,0,0,0.75);
+        color: #fff;
+      }
+
+      #dialogImage{
+        padding: 0;
+        margin: 0;
+        max-width: 100%;
+        max-height: 100%;
+
+      }
+    </style>
+  <template>
+    <div class="container">
+    <template is='dom-repeat' items='[[photoList]]' as='item'>
+      <paper-material class="thumbnails">
+        <iron-image src='[[item.photoSource]]' on-tap='viewPhotoDetail' sizing='cover'></iron-image>
+        <div class="photo-title">
+          <h4>[[item.photoTitle]]</h4>
+        </div>
+      </paper-material>
+    </template>
+    <paper-dialog id='dialog'>
+      <iron-image id='dialogImage' ></iron-image>
+    </paper-dialog>
+    </div>
+  </template>
+  <script>
+    Polymer({
+      is: 'photo-blog',
+
+      properties: {
+        photoList: {
+          type: Array,
+          value: [{
+            photoSource: '../../../images/cover-pic.jpg',
+            photoTitle: 'Cover Pic'
+          }, {
+            photoSource: '../../../images/cover-pic.jpg',
+            photoTitle: 'Cover Pic'
+          }, {
+            photoSource: '../../../images/cover-pic.jpg',
+            photoTitle: 'Cover Pic'
+          }, {
+            photoSource: '../../../images/cover-pic.jpg',
+            photoTitle: 'Cover Pic'
+          }, {
+            photoSource: '../../../images/cover-pic.jpg',
+            photoTitle: 'Cover Pic'
+          }, {
+            photoSource: '../../../images/cover-pic.jpg',
+            photoTitle: 'Cover Pic'
+          }, {
+            photoSource: '../../../images/cover-pic.jpg',
+            photoTitle: 'Cover Pic'
+          }, {
+            photoSource: '../../../images/cover-pic.jpg',
+            photoTitle: 'Cover Pic'
+          }, {
+            photoSource: '../../../images/cover-pic.jpg',
+            photoTitle: 'Cover Pic'
+          }, {
+            photoSource: '../../../images/cover-pic.jpg',
+            photoTitle: 'Cover Pic'
+          }, {
+            photoSource: '../../../images/cover-pic.jpg',
+            photoTitle: 'Cover Pic'
+          }, {
+            photoSource: '../../../images/cover-pic.jpg',
+            photoTitle: 'Cover Pic'
+          }]
+        }
+      },
+      viewPhotoDetail: function(e) {
+        console.log(e.target.src || false)
+        var source = e.target.src || false;
+        this.$.dialogImage.src = source;
+        this.$.dialog.open();
+      }
+    });
+  </script>
+</dom-module>
