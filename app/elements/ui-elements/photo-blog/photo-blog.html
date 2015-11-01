@@ -43,6 +43,7 @@
         width: 80%;
         background-color: rgba(0,0,0,0.75);
         color: #fff;
+        text-align: left;
       }
 
       #dialogImage{
@@ -64,7 +65,7 @@
       </paper-material>
     </template>
     <paper-dialog id='dialog'>
-      <iron-image id='dialogImage' ></iron-image>
+      <iron-image id='dialogImage' sizing='contain'></iron-image>
     </paper-dialog>
     </div>
   </template>
@@ -115,7 +116,7 @@
         }
       },
       viewPhotoDetail: function(e) {
-        console.log(e.target.src || false)
+        console.log(e.target.src || false);
         var source = e.target.src || false;
         this.$.dialogImage.src = source;
         this.$.dialog.open();
