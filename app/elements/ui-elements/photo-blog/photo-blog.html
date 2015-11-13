@@ -27,7 +27,7 @@
         left: 0;
         right: 0;
         background-color: rgba(0,0,0,0.3);
-        color: #fff;
+        color: #ede;
       }
 
       div.photo-title h4 {
@@ -56,15 +56,21 @@
     </style>
   <template>
     <div class="container">
+    <iron-a11y-keys target="[[target]]" keys="left" 
+    on-keys-pressed="leftPressed"></iron-a11y-keys>
+    <iron-a11y-keys target="[[target]]" keys="right" 
+    on-keys-pressed="rightPressed"></iron-a11y-keys>
+    <iron-selector id='selector' on-iron-select='openDialog'>
     <template is='dom-repeat' items='[[photoList]]' as='item'>
       <paper-material class="thumbnails">
-        <iron-image src='[[item.photoSource]]' on-tap='viewPhotoDetail' sizing='cover'></iron-image>
+        <iron-image src='[[item.photoSource]]' sizing='cover'></iron-image>
         <div class="photo-title">
           <h4>[[item.photoTitle]]</h4>
         </div>
       </paper-material>
     </template>
-    <paper-dialog id='dialog'>
+    </iron-selector>
+    <paper-dialog id='dialog' on-iron-overlay-closed='_resetSelector'>
       <iron-image id='dialogImage' sizing='contain'></iron-image>
     </paper-dialog>
     </div>
@@ -74,13 +80,19 @@
       is: 'photo-blog',
 
       properties: {
+        target: {
+          type: Object,
+          value: function() {
+            return this.$.dialog;
+          }
+        },
         photoList: {
           type: Array,
           value: [{
             photoSource: '../../../images/cover-pic.jpg',
             photoTitle: 'Cover Pic'
           }, {
-            photoSource: '../../../images/cover-pic.jpg',
+            photoSource: '../../../images/touch/apple-touch-icon.png',
             photoTitle: 'Cover Pic'
           }, {
             photoSource: '../../../images/cover-pic.jpg',
@@ -115,11 +127,22 @@
           }]
         }
       },
-      viewPhotoDetail: function(e) {
-        console.log(e.target.src || false);
-        var source = e.target.src || false;
-        this.$.dialogImage.src = source;
+      openDialog: function() {
+        this.$.dialogImage.src = this.photoList[parseInt(this.$.selector.selected)].photoSource || false;;
         this.$.dialog.open();
+      },
+      leftPressed: function() {
+        if(this.$.selector.selected>0)
+          this.$.selector.selected--;
+          console.log(this.$.selector.selected);
+      },
+      rightPressed: function() {
+        if(this.$.selector.selected<this.photoList.length)
+          this.$.selector.selected++;
+          console.log(this.$.selector.selected);
+      },
+      _resetSelector: function() {
+        this.$.selector.selected= null;
       }
     });
   </script>
